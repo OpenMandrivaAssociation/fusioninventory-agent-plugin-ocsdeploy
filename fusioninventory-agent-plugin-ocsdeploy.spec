@@ -1,13 +1,17 @@
+%if %{_use_internal_dependency_generator}
+%define __noautoreq 'perl\\(Win32::(.*)\\)'
+%endif
+
 Name:		fusioninventory-agent-plugin-ocsdeploy
-Version:	1.1.1
-Release:	%mkrel 1
+Version:	1.0.5
+Release:	3
 Summary:	OCS Inventory Software deployment support for FusionInventory agent
 License:	GPL
 Group:		System/Servers
 URL:		http://fusioninventory.org/wordpress/
-Source0:	http://search.cpan.org/%7Efusinv/FusionInventory-Agent-Task-OcsDeploy-%{version}.tar.gz
+Source0:	http://search.cpan.org/CPAN/authors/id/G/GO/GONERI/FusionInventory-Agent-Task-OcsDeploy-%{version}.tar.gz
 BuildArch:  noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRequires: perl-devel
 
 %description
 With this module, FusionInventory can accept software deployment request from
@@ -17,18 +21,13 @@ an OCS Inventory server.
 %setup -q -n FusionInventory-Agent-Task-OcsDeploy-%{version}
 
 %build
-%__perl Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %install
-rm -rf  %{buildroot}
 %makeinstall_std
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc AUTHORS Changes README LICENSE
 %{perl_vendorlib}/FusionInventory
 %{_mandir}/man3/*
