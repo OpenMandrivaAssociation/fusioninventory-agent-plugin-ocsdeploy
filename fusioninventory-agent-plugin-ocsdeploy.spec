@@ -4,7 +4,7 @@
 
 Name:		fusioninventory-agent-plugin-ocsdeploy
 Version:	1.0.5
-Release:	3
+Release:	4
 Summary:	OCS Inventory Software deployment support for FusionInventory agent
 License:	GPL
 Group:		System/Servers
