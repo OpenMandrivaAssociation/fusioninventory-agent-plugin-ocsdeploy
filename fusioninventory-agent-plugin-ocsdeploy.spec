@@ -11,6 +11,7 @@ Group:		System/Servers
 URL:		https://fusioninventory.org/wordpress/
 Source0:	http://search.cpan.org/CPAN/authors/id/G/GO/GONERI/FusionInventory-Agent-Task-OcsDeploy-%{version}.tar.gz
 BuildArch:  noarch
+BuildRequires:	make
 BuildRequires: perl-devel
 
 %description
